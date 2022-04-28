@@ -1,0 +1,177 @@
+#include<iostream>
+
+using namespace std;
+
+template<typename T, typename U>
+class BinaryNode{
+    template<typename T1, typename U1> friend class BinarySearchTree;
+private:
+    T key;
+    U value;
+    BinaryNode* left;
+    BinaryNode* right;
+public:
+    BinaryNode(T key=0, U value=0, BinaryNode* left=nullptr, BinaryNode* right=nullptr){
+        this->key=key;
+        this->value=value;
+        this->left=left;
+        this->right=right;
+    }
+    //getter & setter
+
+    bool isLeaf(){
+        return this->left == nullptr && this->right == nullptr;
+    }
+    bool hasTowChildren(){
+        return this->left != nullptr && this->right != nullptr;
+    }
+    bool hasOneChildren(){
+        bool hasOnlyLeft = this->left != nullptr && this->right == nullptr;
+        bool hasOnlyRight = this->left == nullptr && this->right!=nullptr;
+        return hasOnlyLeft || hasOnlyRight;
+    }
+};
+
+template<typename T, typename U>
+class BinaryTree{
+protected:
+    BinaryNode<T,U>* root;
+    int count;
+public:
+    BinaryTree(){this->root = nullptr; count = 0;}
+    ~BinaryTree(){removeNode(this->root);}
+
+    void removeNode(BinaryNode<T,U>* node){
+        delete(node);
+    }
+    bool empty(){
+        return this->root == nullptr;
+    }
+    int getNodeCount(){
+        return count;
+    }
+};
+
+template<typename T, typename U>
+class BinarySearchTree :public BinaryTree<T, U>{
+private:
+    BinaryNode<T,U>* search(BinaryNode<T,U>* node, T key){
+        if(node == nullptr || key == node->key)
+            return node;
+        else if(key<node->key)
+            return search(node->left, key);
+        else
+            return search(node->right, key);
+    }
+    void insert(BinaryNode<T,U>* node, T key, U value){
+        if(key == node->key) node->value = value;
+        else if(key<node->key){
+            if(node->left == nullptr){
+                node->left = new BinaryNode<T,U>(key, value);
+            }else{
+                insert(node->left, key, value);
+            }
+        }else{
+            if(node->right == nullptr)
+                node->right = new BinaryNode<T,U>(key,value);
+            else insert(node->right, key, value);
+        }
+    }
+    BinaryNode<T,U>* remove(BinaryNode<T,U>* node, BinaryNode<T,U>* parent, T key){
+        if(node==nullptr)
+            return nullptr;
+        if(key<node->key)
+            return remove(node->left, node, key);
+        else if(key>node->key)
+            return remove(node->right, node, key);
+        else{
+            if(node->hasTowChildren()){
+                BinaryNode<T,U>* succ = leftmost(node->right);
+                node->key = succ->key;
+                node->value = succ->value;
+
+                succ=this->remove(node->right, node, succ->key);
+                return succ;
+            }else if(node->hasOneChildren()){
+                BinaryNode<T,U>* child = (node->left != nullptr)?node->left:node->right;
+                if(node == this->root) this->root = child;
+                else{
+                    if(parent->left == node)
+                        parent->left = child;
+                    else
+                        parent->right = child;
+                }
+                return node;
+            }else if(node->isLeaf()){
+                if(node==this->root) this->root = nullptr;
+                else{
+                    if(parent->left == node)
+                        parent->left = nullptr;
+                    else
+                        parent->right = nullptr;
+                }
+                return node;
+            }
+        }
+    }
+
+    BinaryNode<T,U>* leftmost(BinaryNode<T,U>* node){
+        while(node->left!=nullptr)
+            node=node->left;
+        return node;
+    }
+public:
+    void search(T key){
+        BinaryNode<T,U>* node = search(this->root, key);
+        if(node==nullptr) cout<<"out-of-key\n";
+        else{
+            cout<<node->value<<"\n";
+        }
+    }
+    void insert(T key, U value){
+        if(this->empty()){
+            this->root = new BinaryNode<T,U>(key, value);
+            this->count++;
+        }else{
+            insert(this->root,key,value);
+            this->count++;
+        }
+    }
+    void remove(T key){
+        BinaryNode<T,U>* node = remove(this->root,nullptr, key);
+        if(node==nullptr) cout<<"out-of-key\n";
+        else{
+            this->count--;
+            delete node;
+        }
+    }
+};
+int main(){
+    int n;
+    string order, key;
+    int value;
+    BinarySearchTree<string, int> bst;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>order;
+        if(order=="empty"){
+            if(bst.empty())
+                cout<<"empty\n";
+            else
+                cout<<"not empty\n";
+        }else if(order=="size"){
+            cout<<bst.getNodeCount()<<"\n";
+        }else{
+            cin>>key;
+            if(order=="remove"){
+                bst.remove(key);
+            }else if(order=="search"){
+                bst.search(key);
+            }else if(order=="insert"){
+                cin>>value;
+                bst.insert(key,value);
+            }
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,84 @@
+cmake_minimum_required(VERSION 3.10)
+project(clion)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-fexec-charset=CP949") #한글깨짐
+#자료구조
+#add_executable(clion "자료구조/stack.cpp")
+#add_executable(clion "자료구조/queue.cpp")
+#add_executable(clion  "자료구조/deque.cpp")
+#add_executable(clion "자료구조/dequeMeeting.cpp")
+#add_executable(clion  "자료구조/DFS.cpp")
+#add_executable(clion  "자료구조/BFS.cpp")
+#add_executable(clion "자료구조/BFS_Maze.cpp")
+#add_executable(clion "자료구조/linkedList + Sort.cpp")
+#add_executable(clion "자료구조/linkedlist + Represent_Sparse_Polynomial.cpp")
+#add_executable(clion "자료구조/linkedlist + Sparse_Polynomial_Addition.cpp")
+#add_executable(clion "자료구조/BST + Simulation.cpp")
+#add_executable(clion "자료구조/BST + Traversal.cpp")
+#add_executable(clion "자료구조/BST + cheack if bst is height-balanced.cpp")
+#add_executable(clion "자료구조/BST + Count Sum Pathes in bst.cpp")
+
+#백준
+#add_executable(clion "백준 class2/s3_1654.cpp")
+#add_executable(clion "백준 class2/s3_1874.cpp")
+#add_executable(clion "백준 class2/s4_1978.cpp")
+#add_executable(clion "백준 class2/s4_10816.cpp")
+#add_executable(clion "백준 class2/s4_11866.cpp")
+#add_executable(clion "백준 class2/s5_1018.cpp")
+#add_executable(clion "백준 class2/s5_1436.cpp")
+#add_executable(clion "백준 class2/s5_2609.cpp")
+#add_executable(clion "백준 class2/s5_2751.cpp")
+#add_executable(clion "백준 class2/s5_10814.cpp")
+#add_executable(clion "백준 class2/s5_11650.cpp")
+
+#add_executable(clion "백준 class2/b1_11050.cpp")
+#add_executable(clion "백준 class2/b2_2231.cpp")
+#add_executable(clion "백준 class2/b3_10250.cpp")
+
+add_executable(clion "백준 class2/s3_1929.cpp")
+
+#스터디
+#add_executable(clion "백준 스터디/g4_4803.cpp")
+#add_executable(clion "백준 스터디/s1_5639.cpp")
+#add_executable(clion "백준 스터디/s1_9934.cpp")
+#add_executable(clion "백준 스터디/s2_11725.cpp")
+#add_executable(clion "백준 스터디/s4_9372.cpp")
+
+#add_executable(clion "백준 스터디/s1_11286.cpp")
+#add_executable(clion "백준 스터디/s2_15903.cpp")
+#add_executable(clion "백준 스터디/s1_15900.cpp")
+
+#add_executable(clion "백준 스터디/s4_13900.cpp")
+#add_executable(clion "백준 스터디/sort.cpp")
+
+#add_executable(clion "백준 스터디/s3_1269.cpp")
+#add_executable(clion "백준 스터디/s4_1620.cpp")
+#add_executable(clion "백준 스터디/g4_1967.cpp")
+#add_executable(clion "백준 스터디/g5_1068.cpp")
+
+#add_executable(clion "백준 스터디/g3_1634.cpp")
+#add_executable(clion "백준 스터디/s3_14425.cpp")
+#add_executable(clion "백준 스터디/s1_1327.cpp")
+#add_executable(clion "백준 스터디/s2_20364.cpp")
+
+#add_executable(clion "백준 스터디/s1_2583.cpp")
+#add_executable(clion "백준 스터디/s2_11060.cpp")
+#add_executable(clion "백준 스터디/s3_11478.cpp")
+#add_executable(clion "백준 스터디/s4_1822.cpp")
+#add_executable(clion "자료구조/quickSort.cpp")
+
+#add_executable(clion "백준 스터디/g5_1753.cpp")
+#add_executable(clion "백준 스터디/g5_1916.cpp")
+
+#add_executable(clion "백준 스터디/g4_1261.cpp")
+#add_executable(clion "백준 스터디/g4_2665.cpp")
+#add_executable(clion "백준 스터디/g4_1647.cpp")
+
+#add_executable(clion "백준 스터디/s2_18352.cpp")
+#add_executable(clion "백준 스터디/g4_1922.cpp")
+#add_executable(clion "백준 스터디/g4_1197.cpp")
+#add_executable(clion "백준 스터디/g4_1504.cpp")
+#add_executable(clion "백준 스터디/g4_18223.cpp")
+#유닉스 과제
+#add_executable(clion "유닉스/과제5.c")

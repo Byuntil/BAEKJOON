@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS "-fexec-charset=CP949") #한글깨짐
 #add_executable(clion "자료구조/BST + cheack if bst is height-balanced.cpp")
 #add_executable(clion "자료구조/BST + Count Sum Pathes in bst.cpp")
 
-#백준
+#백준 class2
 #add_executable(clion "백준 class2/s3_1654.cpp")
 #add_executable(clion "백준 class2/s3_1874.cpp")
 #add_executable(clion "백준 class2/s4_1978.cpp")
@@ -42,8 +42,10 @@ set(CMAKE_CXX_FLAGS "-fexec-charset=CP949") #한글깨짐
 #add_executable(clion "백준 class2/s2_2805.cpp")
 #add_executable(clion "백준 class2/s5_10989.cpp")
 #add_executable(clion "백준 class2/s5_11651.cpp")
-add_executable(clion "백준 class2/s2_18111.cpp")
+#add_executable(clion "백준 class2/s2_18111.cpp")
 
+#백준 class3
+add_executable(clion "백준 class3/s3_1003.cpp")
 #스터디
 #add_executable(clion "백준 스터디/g4_4803.cpp")
 #add_executable(clion "백준 스터디/s1_5639.cpp")

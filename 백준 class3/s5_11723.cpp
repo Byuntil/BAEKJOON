@@ -1,35 +1,58 @@
 #include<iostream>
 #include<algorithm>
-#include<vector>
+#include<cstring>
 
 using namespace std;
 
-vector<int> v, b;
-int N, I;
+int M;
+int arr[21];
 
 void input() {
-    cin >> N;
-    for (int i = 0; i < N; i++) {
-        cin >> I;
-        v.push_back(I);
-        b.push_back(I);
-    }
+    cin >> M;
 }
 
 void solution() {
-    sort(v.begin(), v.end());
-    v.erase(unique(v.begin(), v.end()), v.end());
+    int num;
+    string command;
+    for (int i = 0; i < M; i++) {
+        cin >> command;
+        if (command == "add") {
+            cin >> num;
+            if (arr[num] == 0) {
+                arr[num] = 1;
+            }
+        } else if (command == "check") {
+            cin >> num;
+            if (arr[num] == 0) {
+                cout << "0\n";
+            } else {
+                cout << "1\n";
+            }
+        } else if (command == "remove") {
+            cin >> num;
+            if (arr[num] == 1) {
+                arr[num] = 0;
+            }
+        } else if (command == "toggle") {
+            cin >> num;
+            if (arr[num] == 0) {
+                arr[num] = 1;
+            } else {
+                arr[num] = 0;
+            }
+        } else if (command == "all") {
+            for (int j = 1; j <= 20; j++) {
+                arr[j] = 1;
+            }
+        } else if (command == "empty") {
+            memset(arr, 0, sizeof(arr));
+        }
+    }
 }
 
 void solve() {
     input();
     solution();
-}
-
-void printResult() {
-    for (int i = 0; i < N; i++) {
-        cout << lower_bound(v.begin(), v.end(), b[i]) - v.begin();
-    }
 }
 
 int main() {
@@ -38,6 +61,5 @@ int main() {
     cout.tie(nullptr);
 
     solve();
-    printResult();
     return 0;
 }

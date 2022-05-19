@@ -6,7 +6,6 @@ using namespace std;
 
 int T;
 
-
 void input() {
     cin >> T;
 }

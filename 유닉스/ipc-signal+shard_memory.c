@@ -77,8 +77,8 @@ int main(int argc, char* argv[]){
         //Parent 에게 SIGUSR2 를 보내어 수정이 완료되었음을 알림
         if(kill(getppid(), SIGUSR2)!=0){
             perror("SIGUSR2 send error");
-            return 1;
-        }
+        return 1;
+    }
         //공유메모리 연결 해제
         shmdt(shmaddr);
     }else{//parent

@@ -99,7 +99,8 @@ set(CMAKE_CXX_FLAGS "-fexec-charset=CP949") #한글깨짐
 #add_executable(clion "백준 class4/s3_15654.cpp")
 #add_executable(clion "백준 class4/s3_15657.cpp")
 #add_executable(clion "백준 class4/s2_15663.cpp")
-add_executable(clion "백준 class4/s2_15666.cpp")
+#add_executable(clion "백준 class4/s2_15666.cpp")
+add_executable(clion "백준 class4/s2_16953.cpp")
 
 #스터디
 #add_executable(clion " 백준 스터디/g4_4803.cpp")
